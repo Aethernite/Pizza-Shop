@@ -1,0 +1,28 @@
+<div id="container" xmlns:th="http://www.w3.org/1999/xhtml">
+    <div id="box">
+        <h1>Register FORM</h1>
+        <form action="" th:action="@{/register}" method="POST">
+            <div id="field">
+                <input id="email" type="text" name="email" placeholder="Email" >
+            </div>
+            <div id="field">
+                <input id="username" type="text" name="username" placeholder="Username">
+            </div>
+            <div id="field">
+                <input id="password" type="password" name="password" placeholder="Password">
+            </div>
+            <div id="field">
+                <input id="address" type="text" name="address" placeholder="Address">
+            </div>
+            <div id="field">
+                <input id="phone" type="text" name="phone" placeholder="Phone">
+            </div>
+            <div id="submit">
+                <input class="button" name="register-button" type="submit" value="Register"/>
+            </div>
+        </form>
+        <form id="form" name="form2" th:action="@{/}" method="GET">
+            <input class="button" name="signin-button" type="submit" value="Sign In" />
+        </form>
+    </div>
+</div>
