@@ -1,6 +1,4 @@
 body{
-    width: 100wh;
-    height: 90vh;
     color: #fff;
     background-image: url(https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80);
     background-repeat: no-repeat;
@@ -74,10 +72,11 @@ h1 {
     font-family: 'Roboto', sans-serif;
     transition: all .2s ease-in-out;
     background: none;
-    padding: auto;
-    margin: auto;
-    background: none;
 }
 h1:hover{
     transform: scale(1.1);
+}
+h4{
+    font-family: 'Roboto', sans-serif;
+    color: #818181;
 }

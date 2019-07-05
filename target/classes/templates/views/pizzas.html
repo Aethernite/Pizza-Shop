@@ -1,8 +1,10 @@
 <div class="container" xmlns:th="http://www.w3.org/1999/xhtml">
     <div class="sidenav">
+        <h4>User:[[${account.username}]]</h4>
         <a href="#" th:href="@{/pizzas}">Pizzas</a>
         <a href="#" th:href="@{/drinks}">Drinks</a>
-        <a href="#" th:href="@{/settings}">Settings</a>
+        <a href="#" th:href="@{/}">Logout</a>
+
     </div>
     <div class="container-products">
         <div class="header">
