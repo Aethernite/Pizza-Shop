@@ -128,8 +128,8 @@ public class Controller {
         return modelAndView;
     }
 
-    @GetMapping("/cart/{id}")
-    public ModelAndView cart(ModelAndView modelAndView, @PathVariable(value = "id") Integer id){
+    @GetMapping("/add/{id}")
+    public ModelAndView add(ModelAndView modelAndView, @PathVariable(value = "id") Integer id){
         Product product = this.productRepository.findById(id).get();
         productList.add(product);
         double total = getTotal();
@@ -141,8 +141,8 @@ public class Controller {
         return modelAndView;
     }
 
-    @GetMapping("/cartAdmin/{id}")
-    public ModelAndView cartAdmin(ModelAndView modelAndView, @PathVariable(value = "id") Integer id){
+    @GetMapping("/addAsAdmin/{id}")
+    public ModelAndView addAsAdmin(ModelAndView modelAndView, @PathVariable(value = "id") Integer id){
         Product product = this.productRepository.findById(id).get();
         productList.add(product);
         double total = getTotal();
@@ -153,8 +153,37 @@ public class Controller {
         modelAndView.addObject("total", total);
         return modelAndView;
     }
+    @GetMapping("/remove/{id}")
+    public ModelAndView remove(ModelAndView modelAndView, @PathVariable(value="id") Integer id){
+        removeFromProductList(id);
+        double total = getTotal();
+        modelAndView.setViewName("base-layout");
+        modelAndView.addObject("view", "views/cart");
+        modelAndView.addObject("products", productList);
+        modelAndView.addObject("account", logged);
+        modelAndView.addObject("total", total);
+        return modelAndView;
+    }
 
-
+    @GetMapping("/removeAsAdmin/{id}")
+    public ModelAndView removeAsAdmin(ModelAndView modelAndView, @PathVariable(value="id") Integer id){
+        removeFromProductList(id);
+        double total = getTotal();
+        modelAndView.setViewName("base-layout");
+        modelAndView.addObject("view", "views/cartAdmin");
+        modelAndView.addObject("products", productList);
+        modelAndView.addObject("account", logged);
+        modelAndView.addObject("total", total);
+        return modelAndView;
+    }
+    private void removeFromProductList(Integer id){
+        for(int i=0; i<productList.size(); i++){
+           if(productList.get(i).getId().intValue() == id.intValue()){
+               productList.remove(i);
+               break;
+           }
+        }
+    }
     private boolean checkAccount(Account account) {
         if(account.getUsername() == null || account.getPassword() == null || account.getUsername().trim().isEmpty() || account.getPassword().trim().isEmpty()){
             return true;

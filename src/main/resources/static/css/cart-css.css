@@ -1,3 +1,4 @@
+
 body{
     background-image: url(https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80);
     background-repeat: no-repeat;
@@ -59,6 +60,7 @@ h4{
 .products li{
     border: 2px solid black;
     margin: 5px;
+    list-style-type: none;
 }
 
 .products h2{
@@ -90,8 +92,29 @@ h4{
     font-size: 30px;
     margin-left:1200px;
     margin-top:40px;
+    transition: 0.25s;
 }
 
 .total{
-    margin: auto;
+    margin-left: 20px;
+}
+
+.button:hover{
+    transform: scale(1.1);
+}
+
+.x-button{
+    float: left;
+    padding: 0;
+    border: none;
+    background: none;
+    font-size: 35px;
+    margin: 15px;
+    margin-top:30px;
+    font-family: 'Roboto', sans-serif;
+    color: black;
+    transition: 0.25s;
+}
+.x-button:hover{
+    transform: scale(1.1);
 }

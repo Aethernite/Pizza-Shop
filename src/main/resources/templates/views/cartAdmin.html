@@ -1,6 +1,6 @@
 <head th:fragment="head">
     <title th:if="${pageTitle}" th:text="${pageTitle}"></title>
-    <link th:href="@{/css/cart-style.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/css/cart-css.css}" rel="stylesheet" type="text/css"/>
 </head>
 <div class="container" xmlns:th="http://www.w3.org/1999/xhtml">
     <div class="sidenav">
@@ -19,6 +19,7 @@
                 <div th:if="${products!=null and !products.isEmpty()}">
                 <th:block th:each="product : ${products}">
                     <li th:inline="text">
+                        <form action="" th:action="@{/removeAsAdmin/{id}(id=${product.id})}" method="GET"><button class="x-button">X</button></form>
                         <img th:src="@{${product.imgurl}}" height="100" width="100"/>
                         <h2 class="product-name"> [[${product.name}]] </h2>
                         <h2 class="product-desc"> [[${product.description}]] </h2>
