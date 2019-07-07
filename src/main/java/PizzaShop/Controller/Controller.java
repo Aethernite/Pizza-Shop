@@ -5,16 +5,20 @@ import PizzaShop.AccountRepository.AccountRepository;
 import PizzaShop.Entities.Product;
 import PizzaShop.ProductRepository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @org.springframework.stereotype.Controller
 public class Controller {
     private final AccountRepository accountRepository;
     private final ProductRepository productRepository;
+    private List<Product> productList = new ArrayList<Product>();
     private Account logged = null;
+
     @Autowired
     public Controller(AccountRepository accountRepository, ProductRepository productRepository) {
         this.accountRepository = accountRepository;
@@ -48,12 +52,6 @@ public class Controller {
             return "redirect:/";
     }
 
-    private boolean checkAccount(Account account) {
-        if(account.getUsername() == null || account.getPassword() == null || account.getUsername().trim().isEmpty() || account.getPassword().trim().isEmpty()){
-            return true;
-        }
-        return false;
-    }
 
     @GetMapping("/register")
     public ModelAndView register(ModelAndView modelAndView){
@@ -108,6 +106,70 @@ public class Controller {
         modelAndView.addObject("account", logged);
         return modelAndView;
     }
+    @GetMapping("/cart")
+    public ModelAndView cart(ModelAndView modelAndView){
+        double total = getTotal();
+        modelAndView.setViewName("base-layout");
+        modelAndView.addObject("view", "views/cart");
+        modelAndView.addObject("products", productList);
+        modelAndView.addObject("account", logged);
+        modelAndView.addObject("total", total);
+        return modelAndView;
+    }
+
+    @GetMapping("/cartAdmin")
+    public ModelAndView cartAdmin(ModelAndView modelAndView){
+        double total = getTotal();
+        modelAndView.setViewName("base-layout");
+        modelAndView.addObject("view", "views/cartAdmin");
+        modelAndView.addObject("products", productList);
+        modelAndView.addObject("account", logged);
+        modelAndView.addObject("total", total);
+        return modelAndView;
+    }
+
+    @GetMapping("/cart/{id}")
+    public ModelAndView cart(ModelAndView modelAndView, @PathVariable(value = "id") Integer id){
+        Product product = this.productRepository.findById(id).get();
+        productList.add(product);
+        double total = getTotal();
+        modelAndView.setViewName("base-layout");
+        modelAndView.addObject("view", "views/cart");
+        modelAndView.addObject("products", productList);
+        modelAndView.addObject("account", logged);
+        modelAndView.addObject("total", total);
+        return modelAndView;
+    }
+
+    @GetMapping("/cartAdmin/{id}")
+    public ModelAndView cartAdmin(ModelAndView modelAndView, @PathVariable(value = "id") Integer id){
+        Product product = this.productRepository.findById(id).get();
+        productList.add(product);
+        double total = getTotal();
+        modelAndView.setViewName("base-layout");
+        modelAndView.addObject("view", "views/cartAdmin");
+        modelAndView.addObject("products", productList);
+        modelAndView.addObject("account", logged);
+        modelAndView.addObject("total", total);
+        return modelAndView;
+    }
 
 
+    private boolean checkAccount(Account account) {
+        if(account.getUsername() == null || account.getPassword() == null || account.getUsername().trim().isEmpty() || account.getPassword().trim().isEmpty()){
+            return true;
+        }
+        return false;
+    }
+
+    private double getTotal(){
+        double total = 0;
+        if(productList==null){
+            return total;
+        }
+        for(Product pr: productList){
+            total+=pr.getPrice();
+        }
+        return total;
+    }
 }

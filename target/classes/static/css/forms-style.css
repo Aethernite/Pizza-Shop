@@ -1,7 +1,4 @@
 body {
-    width: 100wh;
-    height: 90vh;
-    color: #fff;
     background-image: url(https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80);
     background-repeat: no-repeat;
     background-size: cover;
@@ -10,8 +7,8 @@ body {
 
 #box{
     position: absolute;
-    padding: 100px;
-    left:45%;
+    padding: 70px 100px 70px 100px;
+    margin-left: 800px;
     background-color:rgba(0, 0, 0, 0.8);
     text-align: center;
     font-family: sans-serif;
@@ -41,7 +38,7 @@ body {
 #box input[type = "submit"]{
     border:0;
     background: #191919;
-    display: inline;
+    display: block;
     margin: 20px auto;
     text-align: center;
     border: 2px solid #471025;

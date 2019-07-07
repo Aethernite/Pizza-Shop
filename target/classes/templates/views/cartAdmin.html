@@ -1,0 +1,34 @@
+<head th:fragment="head">
+    <title th:if="${pageTitle}" th:text="${pageTitle}"></title>
+    <link th:href="@{/css/cart-style.css}" rel="stylesheet" type="text/css"/>
+</head>
+<div class="container" xmlns:th="http://www.w3.org/1999/xhtml">
+    <div class="sidenav">
+        <h4>User:[[${account.username}]]</h4>
+        <a href="#" th:href="@{/pizzasAdmin}">Pizzas</a>
+        <a href="#" th:href="@{/drinksAdmin}">Drinks</a>
+        <a href="#" th:href="@{/cartAdmin}">Cart</a>
+        <a href="#" th:href="@{/orders}">Orders</a>
+        <a href="#" th:href="@{/}">Logout</a>
+
+    </div>
+    <div class="product-container" xmlns:th="http://www.w3.org/1999/xhtml">
+        <ul>
+            <div class="products">
+                <h1> Shopping cart</h1>
+                <div th:if="${products!=null and !products.isEmpty()}">
+                <th:block th:each="product : ${products}">
+                    <li th:inline="text">
+                        <img th:src="@{${product.imgurl}}" height="100" width="100"/>
+                        <h2 class="product-name"> [[${product.name}]] </h2>
+                        <h2 class="product-desc"> [[${product.description}]] </h2>
+                        <h2 class="price"> [[${#numbers.formatDecimal(product.price, 1, 'DEFAULT', 2, 'DEFAULT')}]] лв</h2>
+                    </li>
+                </th:block>
+                    </div>
+                <button class="button">Поръчай</button>
+                <h2 class="total">Total:[[${#numbers.formatDecimal(total, 1, 'DEFAULT', 2, 'DEFAULT')}]] лв</h2>
+            </div>
+        </ul>
+    </div>
+</div>

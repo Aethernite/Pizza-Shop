@@ -1,5 +1,4 @@
 body{
-    color: #fff;
     background-image: url(https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80);
     background-repeat: no-repeat;
     background-size: cover;
@@ -28,10 +27,27 @@ body{
     font-family: 'Roboto', sans-serif;
     text-align: center;
     color: black;
-    margin:20px 10px 10px 10px;
+    margin:10px 10px 10px 10px;
     overflow: auto;
 }
-
+.products p{
+    font-family: 'Roboto', sans-serif;
+    text-align:center;
+    overflow:auto;
+    margin:0;
+}
+.products button{
+    border: none;
+    outline: 0;
+    padding: 12px;
+    margin-top: 0px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+}
 .sidenav {
     height: 100%; /* Full-height: remove this if you want "auto" height */
     width: 160px; /* Set the width of the sidebar */

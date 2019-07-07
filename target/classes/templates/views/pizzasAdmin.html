@@ -1,8 +1,13 @@
+<head th:fragment="head">
+    <title th:if="${pageTitle}" th:text="${pageTitle}"></title>
+    <link th:href="@{/css/pizzas-css.css}" rel="stylesheet" type="text/css"/>
+</head>
 <div class="container" xmlns:th="http://www.w3.org/1999/xhtml">
     <div class="sidenav">
         <h4>User:[[${account.username}]]</h4>
-        <a href="#" th:href="@{/pizzas}">Pizzas</a>
-        <a href="#" th:href="@{/drinks}">Drinks</a>
+        <a href="#" th:href="@{/pizzasAdmin}">Pizzas</a>
+        <a href="#" th:href="@{/drinksAdmin}">Drinks</a>
+        <a href="#" th:href="@{/cartAdmin}">Cart</a>
         <a href="#" th:href="@{/orders}">Orders</a>
         <a href="#" th:href="@{/}">Logout</a>
 
@@ -15,10 +20,11 @@
             <ul class="products-column">
                 <th:block th:each="product : ${products}">
                     <li>
-                        <td></td> <img th:src="@{${product.imgurl}}" height="250" width="250"/></td>
+                        <td><img th:src="@{${product.imgurl}}" height="250" width="250"/></td>
                         <td><h3>[[${product.name}]]</h3></td>
-                        <td><h3>[[${product.description}]]</h3></td>
-                        <td><h3>Цена:[[${product.price}]] лв</h3></td>
+                        <td><p>[[${product.description}]]</p></td>
+                        <td><h3>Цена:[[${#numbers.formatDecimal(product.price, 1, 'DEFAULT', 2, 'DEFAULT')}]] лв</h3></td>
+                        <td><p><form action="" th:action="@{/cart/{id}(id=${product.id})}" method="GET"><button>Добави в количка</button></form></p></td>
                     </li>
                 </th:block>
             </ul>

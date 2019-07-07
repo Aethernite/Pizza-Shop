@@ -1,3 +1,7 @@
+<head th:fragment="head">
+    <title th:if="${pageTitle}" th:text="${pageTitle}"></title>
+    <link th:href="@{/css/forms-style.css}" rel="stylesheet" type="text/css"/>
+</head>
 <div id="container" xmlns:th="http://www.w3.org/1999/xhtml">
     <div id="box">
         <h1>Register FORM</h1>
