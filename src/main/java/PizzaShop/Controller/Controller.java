@@ -8,16 +8,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.ArrayList;
 import java.util.List;
-
+@SessionAttributes({"account","cart"})
 @org.springframework.stereotype.Controller
 public class Controller {
     private final AccountRepository accountRepository;
     private final ProductRepository productRepository;
-    private List<Product> productList = new ArrayList<Product>();
-    private Account logged = null;
 
     @Autowired
     public Controller(AccountRepository accountRepository, ProductRepository productRepository) {
@@ -28,24 +27,25 @@ public class Controller {
 
     @GetMapping("/")
     public ModelAndView index(ModelAndView modelAndView) {
-        logged = null;
         modelAndView.setViewName("base-layout");
         modelAndView.addObject("view", "views/index");
         return modelAndView;
     }
 
     @PostMapping("/")
-    public String login(Account account){
-        if (checkAccount(account)) return "redirect:/";
+    public String login(Account account, RedirectAttributes redirectAttributes){
+
+        if (isValid(account)) return "redirect:/";
         List<Account> accounts = this.accountRepository.findAll();
         Account acc = accounts.stream()
                 .filter(account1 -> account.getUsername().equals(account1.getUsername()))
                 .findAny()
                 .orElse(null);
         if(acc.getUsername().equals(account.getUsername()) && acc.getPassword().equals(account.getPassword())){
-            logged = acc;
-            if(acc.isAdmin()) {
-                return "redirect:/pizzasAdmin";
+            redirectAttributes.addFlashAttribute("account", acc);
+            redirectAttributes.addFlashAttribute("cart", new ArrayList<Product>());
+            if(acc.isAdmin()){
+                return "redirect:/orders";
             }
             return "redirect:/pizzas";
         }
@@ -62,7 +62,7 @@ public class Controller {
 
     @PostMapping("/register")
     public String create(Account account){
-        if (checkAccount(account)) return "redirect:/register";
+        if (isValid(account)) return "redirect:/register";
         accountRepository.saveAndFlush(account);
         return "redirect:/";
     }
@@ -71,9 +71,8 @@ public class Controller {
     public ModelAndView pizzas(ModelAndView modelAndView){
         List<Product> products = this.productRepository.findAllByType("pizza");
         modelAndView.setViewName("base-layout");
-        modelAndView.addObject("view", "views/pizzas");
         modelAndView.addObject("products", products);
-        modelAndView.addObject("account", logged);
+        modelAndView.addObject("view", "views/pizzas");
         return modelAndView;
     }
 
@@ -83,115 +82,65 @@ public class Controller {
        modelAndView.setViewName("base-layout");
        modelAndView.addObject("view", "views/drinks");
        modelAndView.addObject("products", products);
-       modelAndView.addObject("account", logged);
+       modelAndView.addObject("view", "views/drinks");
        return modelAndView;
    }
 
-   @GetMapping("/pizzasAdmin")
-   public ModelAndView pizzasAdmin(ModelAndView modelAndView){
-       List<Product> products = this.productRepository.findAllByType("pizza");
-       modelAndView.setViewName("base-layout");
-       modelAndView.addObject("view", "views/pizzasAdmin");
-       modelAndView.addObject("products", products);
-       modelAndView.addObject("account", logged);
-       return modelAndView;
-   }
 
-    @GetMapping("/drinksAdmin")
-    public ModelAndView drinksAdmin(ModelAndView modelAndView){
-        List<Product> products = this.productRepository.findAllByType("drink");
-        modelAndView.setViewName("base-layout");
-        modelAndView.addObject("view", "views/drinksAdmin");
-        modelAndView.addObject("products", products);
-        modelAndView.addObject("account", logged);
-        return modelAndView;
-    }
     @GetMapping("/cart")
-    public ModelAndView cart(ModelAndView modelAndView){
-        double total = getTotal();
+    public ModelAndView cart(ModelAndView modelAndView,@ModelAttribute("cart") List<Product> cart){
+        double total = getTotal(cart);
         modelAndView.setViewName("base-layout");
         modelAndView.addObject("view", "views/cart");
-        modelAndView.addObject("products", productList);
-        modelAndView.addObject("account", logged);
         modelAndView.addObject("total", total);
         return modelAndView;
     }
 
-    @GetMapping("/cartAdmin")
-    public ModelAndView cartAdmin(ModelAndView modelAndView){
-        double total = getTotal();
-        modelAndView.setViewName("base-layout");
-        modelAndView.addObject("view", "views/cartAdmin");
-        modelAndView.addObject("products", productList);
-        modelAndView.addObject("account", logged);
-        modelAndView.addObject("total", total);
-        return modelAndView;
-    }
 
     @GetMapping("/add/{id}")
-    public ModelAndView add(ModelAndView modelAndView, @PathVariable(value = "id") Integer id){
+    public ModelAndView add(ModelAndView modelAndView, @PathVariable(value = "id") Integer id, @ModelAttribute("cart") List<Product> cart, RedirectAttributes redirectAttributes){
         Product product = this.productRepository.findById(id).get();
-        productList.add(product);
-        double total = getTotal();
+        cart.add(product);
+        redirectAttributes.addFlashAttribute("cart", cart);
+        double total = getTotal(cart);
         modelAndView.setViewName("base-layout");
         modelAndView.addObject("view", "views/cart");
-        modelAndView.addObject("products", productList);
-        modelAndView.addObject("account", logged);
         modelAndView.addObject("total", total);
         return modelAndView;
     }
 
-    @GetMapping("/addAsAdmin/{id}")
-    public ModelAndView addAsAdmin(ModelAndView modelAndView, @PathVariable(value = "id") Integer id){
-        Product product = this.productRepository.findById(id).get();
-        productList.add(product);
-        double total = getTotal();
-        modelAndView.setViewName("base-layout");
-        modelAndView.addObject("view", "views/cartAdmin");
-        modelAndView.addObject("products", productList);
-        modelAndView.addObject("account", logged);
-        modelAndView.addObject("total", total);
-        return modelAndView;
-    }
+
+
     @GetMapping("/remove/{id}")
-    public ModelAndView remove(ModelAndView modelAndView, @PathVariable(value="id") Integer id){
-        removeFromProductList(id);
-        double total = getTotal();
+    public ModelAndView remove(ModelAndView modelAndView, @PathVariable(value="id") Integer id, @ModelAttribute("cart") List<Product> cart, RedirectAttributes redirectAttributes){
+        cart = removeFromCart(cart,id);
+        redirectAttributes.addFlashAttribute("cart", cart);
+        double total = getTotal(cart);
         modelAndView.setViewName("base-layout");
         modelAndView.addObject("view", "views/cart");
-        modelAndView.addObject("products", productList);
-        modelAndView.addObject("account", logged);
         modelAndView.addObject("total", total);
         return modelAndView;
     }
 
-    @GetMapping("/removeAsAdmin/{id}")
-    public ModelAndView removeAsAdmin(ModelAndView modelAndView, @PathVariable(value="id") Integer id){
-        removeFromProductList(id);
-        double total = getTotal();
-        modelAndView.setViewName("base-layout");
-        modelAndView.addObject("view", "views/cartAdmin");
-        modelAndView.addObject("products", productList);
-        modelAndView.addObject("account", logged);
-        modelAndView.addObject("total", total);
-        return modelAndView;
-    }
-    private void removeFromProductList(Integer id){
-        for(int i=0; i<productList.size(); i++){
-           if(productList.get(i).getId().intValue() == id.intValue()){
-               productList.remove(i);
+
+    private List<Product> removeFromCart(List<Product> cart, Integer id){
+        for(int i=0; i<cart.size(); i++){
+           if(cart.get(i).getId().intValue() == id.intValue()){
+               cart.remove(i);
                break;
            }
         }
+        return cart;
     }
-    private boolean checkAccount(Account account) {
+
+    private boolean isValid(Account account) {
         if(account.getUsername() == null || account.getPassword() == null || account.getUsername().trim().isEmpty() || account.getPassword().trim().isEmpty()){
             return true;
         }
         return false;
     }
 
-    private double getTotal(){
+    private double getTotal(List<Product> productList){
         double total = 0;
         if(productList==null){
             return total;

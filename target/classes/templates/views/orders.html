@@ -1,0 +1,12 @@
+<head th:fragment="head">
+    <title th:if="${pageTitle}" th:text="${pageTitle}"></title>
+    <link th:href="@{/css/pizzas-css.css}" rel="stylesheet" type="text/css"/>
+</head>
+<div class="container" xmlns:th="http://www.w3.org/1999/xhtml">
+    <div class="sidenav">
+        <h4>User:[[${account.username}]]</h4>
+        <a href="#" th:href="@{/orders}">Orders</a>
+        <a href="#" th:href="@{/}">Logout</a>
+
+    </div>
+</div>

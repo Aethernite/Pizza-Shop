@@ -15,8 +15,8 @@
         <ul>
         <div class="products">
             <h1> Shopping cart</h1>
-            <div th:if="${products!=null and !products.isEmpty()}">
-            <th:block th:each="product : ${products}">
+            <div th:if="${cart!=null and !cart.isEmpty()}">
+            <th:block th:each="product : ${cart}">
                 <li th:inline="text">
                     <form action="" th:action="@{/remove/{id}(id=${product.id})}" method="GET"><button class="x-button">X</button></form>
                     <img th:src="@{${product.imgurl}}" height="100" width="100"/>
