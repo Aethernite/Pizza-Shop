@@ -12,6 +12,7 @@ public class Order {
     private String address;
     private String phone;
     private double price;
+    private String status;
 
 
 
@@ -25,6 +26,15 @@ public class Order {
         this.address = address;
         this.phone = phone;
         this.price = price;
+        this.status = "not completed";
+    }
+    @Column(name = "status",nullable = false)
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     @Id

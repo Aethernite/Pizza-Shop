@@ -13,12 +13,15 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+
 @SessionAttributes({"account","cart"})
 @org.springframework.stereotype.Controller
 public class Controller {
     private final AccountRepository accountRepository;
     private final ProductRepository productRepository;
     private final OrderRepository orderRepository;
+
 
     @Autowired
     public Controller(AccountRepository accountRepository, ProductRepository productRepository, OrderRepository orderRepository) {
@@ -143,17 +146,29 @@ public class Controller {
     @GetMapping("/orders")
     public ModelAndView orders(ModelAndView modelAndView, @ModelAttribute("account") Account account){
         if(account.isAdmin()) {
+            List<Order> orders = this.orderRepository.findAllByStatus("not completed");
             modelAndView.setViewName("base-layout");
             modelAndView.addObject("view", "views/orders");
+            modelAndView.addObject("orders", orders);
         }
         return modelAndView;
     }
 
+    @PostMapping("/completeOrder/{id}")
+    public String completeOrder(@PathVariable(value = "id") Integer id, @ModelAttribute("account") Account account){
+        if(account.isAdmin()){
+            Optional<Order> order = this.orderRepository.findById(id);
+            Order obj = order.get();
+            obj.setStatus("completed");
+            this.orderRepository.save(obj);
+        }
+        return "redirect:/orders";
+    }
 
     private String convertListToString(List<Product> products){
         StringBuilder sb = new StringBuilder();
         for(Product pr: products){
-           sb.append(pr.getName() + " " + String.format("%.2f",pr.getPrice()));
+           sb.append(pr.getName() + " " + String.format("%.2f",pr.getPrice()) + "\n");
         }
         return sb.toString();
     }

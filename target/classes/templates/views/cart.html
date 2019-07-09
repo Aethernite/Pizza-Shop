@@ -22,12 +22,12 @@
                     <img th:src="@{${product.imgurl}}" height="100" width="100"/>
                     <h2 class="product-name"> [[${product.name}]] </h2>
                     <h2 class="product-desc"> [[${product.description}]] </h2>
-                    <h2 class="price"> [[${#numbers.formatDecimal(product.price, 1, 'DEFAULT', 2, 'DEFAULT')}]] лв</h2>
+                    <h2 class="price"> [[${#numbers.formatDecimal(product.price, 1, 'DEFAULT', 2, 'DEFAULT')}]] BGN</h2>
                 </li>
             </th:block>
         </div>
-            <form action="" th:action="@{/createOrder}" method="POST"><button class="button">Поръчай</button></form>
-            <h2 class="total">Total:[[${#numbers.formatDecimal(total, 1, 'DEFAULT', 2, 'DEFAULT')}]] лв</h2>
+            <form action="" th:action="@{/createOrder}" method="POST"><button class="button">Order</button></form>
+            <h2 class="total">Total:[[${#numbers.formatDecimal(total, 1, 'DEFAULT', 2, 'DEFAULT')}]] BGN</h2>
         </div>
         </ul>
     </div>

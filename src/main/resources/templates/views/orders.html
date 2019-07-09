@@ -1,6 +1,6 @@
 <head th:fragment="head">
     <title th:if="${pageTitle}" th:text="${pageTitle}"></title>
-    <link th:href="@{/css/pizzas-css.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/css/orders-css.css}" rel="stylesheet" type="text/css"/>
 </head>
 <div class="container" xmlns:th="http://www.w3.org/1999/xhtml">
     <div class="sidenav">
@@ -8,5 +8,22 @@
         <a href="#" th:href="@{/orders}">Orders</a>
         <a href="#" th:href="@{/}">Logout</a>
 
+    </div>
+    <div class="products" xmlns:th="http://www.w3.org/1999/xhtml">
+        <ul class="orders-column">
+            <th:block th:each="order : ${orders}">
+                <li>
+                    <td><h3 class="username">Name:[[${order.username}]]</h3></td>
+                    <td><h2 class="order-title">Order</h2></td>
+                    <td><p class="order-products">[[${order.products}]]</p></td>
+                    <td><p class="address">Address:[[${order.address}]]</p></td>
+                    <td><p class="phone">Phone:[[${order.phone}]]</p></td>
+
+                    <td><h3 class="price">Total price:[[${#numbers.formatDecimal(order.price, 1, 'DEFAULT', 2, 'DEFAULT')}]] BGN</h3></td>
+                    <td><p><form action="" th:action="@{/completeOrder/{id}(id=${order.id})}" method="POST"><button class="button">Complete Order</button></form></p></td>
+                </li>
+
+            </th:block>
+        </ul>
     </div>
 </div>

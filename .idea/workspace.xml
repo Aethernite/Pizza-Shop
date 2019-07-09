@@ -2,19 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="782dfbc8-7c7d-47a3-a7f6-31d1ce2f468b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/PizzaShop/Entities/Order.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/PizzaShop/Repositories/OrderRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/orders-css.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/PizzaShop/AccountRepository/AccountRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PizzaShop/Repositories/AccountRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/PizzaShop/Controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PizzaShop/Controller/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/PizzaShop/ProductRepository/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PizzaShop/Repositories/ProductRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/PizzaShop/Entities/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PizzaShop/Entities/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/PizzaShop/Repositories/OrderRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PizzaShop/Repositories/OrderRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/SQL.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/SQL.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/views/cart.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/views/cart.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/views/drinks.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/views/drinks.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/views/orders.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/views/orders.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/views/pizzas.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/views/pizzas.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/PizzaShop/AccountRepository/AccountRepository.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/PizzaShop/Controller/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/PizzaShop/Controller/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/PizzaShop/ProductRepository/ProductRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/PizzaShop/Entities/Order.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/PizzaShop/Entities/Order.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/PizzaShop/Repositories/OrderRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/PizzaShop/Repositories/OrderRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/SQL.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/SQL.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/templates/views/cart.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/views/cart.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/views/drinks.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/views/drinks.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/views/orders.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/views/orders.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/views/pizzas.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/views/pizzas.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -35,11 +40,20 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/PizzaShop/Controller/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-340">
-              <caret line="116" column="32" lean-forward="true" selection-start-line="116" selection-start-column="32" selection-end-line="116" selection-end-column="32" />
+            <state relative-caret-position="13">
+              <caret line="162" column="43" selection-start-line="162" selection-start-column="43" selection-end-line="162" selection-end-column="43" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/static/css/orders-css.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="394">
+              <caret line="122" column="1" selection-start-line="122" selection-start-column="1" selection-end-line="122" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -47,29 +61,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/templates/views/orders.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret selection-end-line="11" selection-end-column="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/static/css/cart-css.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="766">
-              <caret line="119" column="1" selection-start-line="119" selection-start-column="1" selection-end-line="119" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/PizzaShop/Repositories/ProductRepository.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="28" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="272">
+              <caret line="22" column="93" selection-start-line="22" selection-start-column="93" selection-end-line="22" selection-end-column="93" />
             </state>
           </provider>
         </entry>
@@ -78,7 +71,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/resources/templates/views/pizzas.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="272">
-              <caret line="25" column="102" selection-start-line="25" selection-start-column="102" selection-end-line="25" selection-end-column="102" />
+              <caret line="25" column="87" selection-start-line="25" selection-start-column="87" selection-end-line="25" selection-end-column="87" />
             </state>
           </provider>
         </entry>
@@ -86,20 +79,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/PizzaShop/Repositories/OrderRepository.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="26" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/PizzaShop/Repositories/AccountRepository.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="11" selection-start-line="8" selection-end-line="8" selection-end-column="11" />
+            <state relative-caret-position="187">
+              <caret line="11" column="47" selection-start-line="11" selection-start-column="47" selection-end-line="11" selection-end-column="47" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -111,7 +92,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/resources/templates/views/cart.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="207">
-              <caret line="29" column="108" lean-forward="true" selection-start-line="29" selection-start-column="108" selection-end-line="29" selection-end-column="108" />
+              <caret line="29" column="104" selection-start-line="29" selection-start-column="104" selection-end-line="29" selection-end-column="104" />
             </state>
           </provider>
         </entry>
@@ -120,7 +101,16 @@
         <entry file="file://$PROJECT_DIR$/src/main/resources/templates/views/drinks.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="224">
-              <caret line="25" column="102" selection-start-line="25" selection-start-column="102" selection-end-line="25" selection-end-column="102" />
+              <caret line="25" column="123" selection-start-line="25" selection-start-column="123" selection-end-line="25" selection-end-column="123" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/SQL.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="493">
+              <caret line="29" column="76" selection-start-line="29" selection-start-column="76" selection-end-line="29" selection-end-column="76" />
             </state>
           </provider>
         </entry>
@@ -128,10 +118,14 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/PizzaShop/Entities/Order.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="654">
-              <caret line="74" column="45" selection-start-line="74" selection-start-column="45" selection-end-line="74" selection-end-column="45" />
+            <state relative-caret-position="68">
+              <caret line="22" column="96" selection-start-line="22" selection-start-column="96" selection-end-line="22" selection-end-column="96" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#698#699#0" expanded="true" />
+                <element signature="e#727#728#0" expanded="true" />
+                <element signature="e#771#772#0" expanded="true" />
+                <element signature="e#807#808#0" expanded="true" />
                 <element signature="e#617#618#0" expanded="true" />
                 <element signature="e#642#643#0" expanded="true" />
                 <element signature="e#679#680#0" expanded="true" />
@@ -167,8 +161,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
-        <option value="CSS File" />
         <option value="Class" />
+        <option value="CSS File" />
         <option value="Interface" />
       </list>
     </option>
@@ -186,12 +180,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/resources/templates/head.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/views.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
-        <option value="$PROJECT_DIR$/src/main/java/Entities/Account.java" />
-        <option value="$PROJECT_DIR$/src/main/java/bindingModel/AccountBindingModel.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Controller/Controller.java" />
         <option value="$PROJECT_DIR$/src/main/java/PizzaShopApplication.java" />
         <option value="$PROJECT_DIR$/src/main/java/AccountRepository/AccountRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/PizzaShop/bindingModel/AccountBindingModel.java" />
@@ -223,7 +211,6 @@
         <option value="$PROJECT_DIR$/src/main/resources/templates/views/register.html" />
         <option value="$PROJECT_DIR$/src/main/resources/static/css/forms-style.css" />
         <option value="$PROJECT_DIR$/src/main/resources/static/css/pizzas-css.css" />
-        <option value="$PROJECT_DIR$/src/main/resources/SQL.txt" />
         <option value="$PROJECT_DIR$/src/main/java/PizzaShop/ProductRepository/ProductRepository.java" />
         <option value="$PROJECT_DIR$/src/main/resources/static/css/cart-style.css" />
         <option value="$PROJECT_DIR$/src/main/resources/static/css/cart-css.css" />
@@ -231,11 +218,18 @@
         <option value="$PROJECT_DIR$/src/main/resources/templates/views/pizzasAdmin.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/views/drinksAdmin.html" />
         <option value="$PROJECT_DIR$/src/main/java/PizzaShop/AccountRepository/AccountRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/css/test1.css" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/css/test2.css" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/views/drinks.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/views/cart.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/views/pizzas.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/css/orders-style.css" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/css/orders-css.css" />
+        <option value="$PROJECT_DIR$/src/main/java/PizzaShop/Repositories/CompletedOrdersRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/views/orders.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/SQL.txt" />
         <option value="$PROJECT_DIR$/src/main/java/PizzaShop/Repositories/OrderRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/PizzaShop/Entities/Order.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/views/cart.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/views/drinks.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/views/pizzas.html" />
         <option value="$PROJECT_DIR$/src/main/java/PizzaShop/Controller/Controller.java" />
       </list>
     </option>
@@ -456,12 +450,12 @@
       <updated>1562161255045</updated>
       <workItem from="1562161257909" duration="9010000" />
       <workItem from="1562193660758" duration="47676000" />
-      <workItem from="1562609165535" duration="13057000" />
+      <workItem from="1562609165535" duration="17760000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="69743000" />
+    <option name="totallyTimeSpent" value="74446000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -511,7 +505,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/PizzaShop/Controller/Controller.java</url>
-          <line>166</line>
+          <line>181</line>
           <properties />
           <option name="timeStamp" value="11" />
         </line-breakpoint>
@@ -519,20 +513,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/views.html" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/PizzaShop.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/bindingModel.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/PizzaShop/PizzaShopApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="10" column="5" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/css/index-styl.css" />
     <entry file="file://$PROJECT_DIR$/src/main/resources/application-dev.yml" />
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/css/indexstyle.css" />
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/css/login.css" />
@@ -589,13 +569,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="316">
           <caret line="32" column="4" selection-start-line="32" selection-start-column="4" selection-end-line="32" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/SQL.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
         </state>
       </provider>
     </entry>
@@ -697,7 +670,49 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/PizzaShop/Repositories/OrderRepository.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/css/test1.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="394">
+          <caret line="122" column="1" selection-start-line="122" selection-start-column="1" selection-end-line="122" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/css/test2.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="122" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/views/drinks.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="25" column="123" selection-start-line="25" selection-start-column="123" selection-end-line="25" selection-end-column="123" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/views/cart.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="29" column="104" selection-start-line="29" selection-start-column="104" selection-end-line="29" selection-end-column="104" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/css/orders-style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="122" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/css/orders-css.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="394">
+          <caret line="122" column="1" selection-start-line="122" selection-start-column="1" selection-end-line="122" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/PizzaShop/Repositories/CompletedOrdersRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="10" column="26" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
@@ -707,12 +722,47 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/PizzaShop/Entities/Order.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/views/pizzas.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="654">
-          <caret line="74" column="45" selection-start-line="74" selection-start-column="45" selection-end-line="74" selection-end-column="45" />
+        <state relative-caret-position="272">
+          <caret line="25" column="87" selection-start-line="25" selection-start-column="87" selection-end-line="25" selection-end-column="87" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/views/orders.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="22" column="93" selection-start-line="22" selection-start-column="93" selection-end-line="22" selection-end-column="93" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/SQL.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="29" column="76" selection-start-line="29" selection-start-column="76" selection-end-line="29" selection-end-column="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/PizzaShop/Repositories/OrderRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="47" selection-start-line="11" selection-start-column="47" selection-end-line="11" selection-end-column="47" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/PizzaShop/Entities/Order.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="22" column="96" selection-start-line="22" selection-start-column="96" selection-end-line="22" selection-end-column="96" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#698#699#0" expanded="true" />
+            <element signature="e#727#728#0" expanded="true" />
+            <element signature="e#771#772#0" expanded="true" />
+            <element signature="e#807#808#0" expanded="true" />
             <element signature="e#617#618#0" expanded="true" />
             <element signature="e#642#643#0" expanded="true" />
             <element signature="e#679#680#0" expanded="true" />
@@ -741,38 +791,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/views/orders.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="11" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/views/cart.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="29" column="108" lean-forward="true" selection-start-line="29" selection-start-column="108" selection-end-line="29" selection-end-column="108" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/views/drinks.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="25" column="102" selection-start-line="25" selection-start-column="102" selection-end-line="25" selection-end-column="102" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/views/pizzas.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="25" column="102" selection-start-line="25" selection-start-column="102" selection-end-line="25" selection-end-column="102" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/PizzaShop/Controller/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-340">
-          <caret line="116" column="32" lean-forward="true" selection-start-line="116" selection-start-column="32" selection-end-line="116" selection-end-column="32" />
+        <state relative-caret-position="13">
+          <caret line="162" column="43" selection-start-line="162" selection-start-column="43" selection-end-line="162" selection-end-column="43" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
