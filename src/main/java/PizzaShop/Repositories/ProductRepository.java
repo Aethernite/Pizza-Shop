@@ -1,4 +1,4 @@
-package PizzaShop.ProductRepository;
+package PizzaShop.Repositories;
 
 import PizzaShop.Entities.Product;
 import org.springframework.data.jpa.repository.JpaRepository;

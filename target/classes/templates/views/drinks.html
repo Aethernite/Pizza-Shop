@@ -23,7 +23,7 @@
                         <td><h3>[[${product.name}]]</h3></td>
                         <td><p>[[${product.description}]]</p></td>
                         <td><h3>Цена:[[${#numbers.formatDecimal(product.price, 1, 'DEFAULT', 2, 'DEFAULT')}]] лв</h3></td>
-                        <td><p><form action="" th:action="@{/add/{id}(id=${product.id})}" method="GET"><button>Добави в количка</button></form></p></td>
+                        <td><p><form action="" th:action="@{/add/{id}(id=${product.id})}" method="POST"><button>Добави в количка</button></form></p></td>
                     </li>
                 </th:block>
             </ul>

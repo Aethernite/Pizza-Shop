@@ -26,7 +26,7 @@
                 </li>
             </th:block>
         </div>
-            <button class="button">Поръчай</button>
+            <form action="" th:action="@{/createOrder}" method="POST"><button class="button">Поръчай</button></form>
             <h2 class="total">Total:[[${#numbers.formatDecimal(total, 1, 'DEFAULT', 2, 'DEFAULT')}]] лв</h2>
         </div>
         </ul>
