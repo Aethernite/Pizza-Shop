@@ -47,6 +47,9 @@ public class Controller {
                 .filter(account1 -> account.getUsername().equals(account1.getUsername()))
                 .findAny()
                 .orElse(null);
+        if(acc == null){
+            return "redirect:/";
+        }
         if(acc.getUsername().equals(account.getUsername()) && acc.getPassword().equals(account.getPassword())){
             redirectAttributes.addFlashAttribute("account", acc);
             redirectAttributes.addFlashAttribute("cart", new ArrayList<Product>());
@@ -76,7 +79,7 @@ public class Controller {
     @GetMapping("/pizzas")
     public ModelAndView pizzas(ModelAndView modelAndView, @ModelAttribute("account") Account account){
         if(!account.isAdmin()) {
-            List<Product> products = this.productRepository.findAllByType("pizza");
+            List<Product> products = this.productRepository.findAllByTypeAndStatus("pizza","enabled");
             modelAndView.setViewName("base-layout");
             modelAndView.addObject("products", products);
             modelAndView.addObject("view", "views/pizzas");
@@ -87,7 +90,7 @@ public class Controller {
    @GetMapping("/drinks")
     public ModelAndView drinks(ModelAndView modelAndView, @ModelAttribute("account") Account account){
        if(!account.isAdmin()) {
-           List<Product> products = this.productRepository.findAllByType("drink");
+           List<Product> products = this.productRepository.findAllByTypeAndStatus("drink","enabled");
            modelAndView.setViewName("base-layout");
            modelAndView.addObject("view", "views/drinks");
            modelAndView.addObject("products", products);
@@ -134,11 +137,13 @@ public class Controller {
     @PostMapping("/createOrder")
     public String createOrder(@ModelAttribute("account") Account account, @ModelAttribute("cart") List<Product> cart, RedirectAttributes redirectAttributes){
         if(!account.isAdmin()) {
-        String products = convertListToString(cart);
-        Order order = new Order(account.getUsername(),products, account.getAddress(), account.getPhone(), getTotal(cart));
-        this.orderRepository.saveAndFlush(order);
-        cart = new ArrayList<Product>();
-        redirectAttributes.addFlashAttribute("cart", cart);
+            if(!cart.isEmpty()) {
+                String products = convertListToString(cart);
+                Order order = new Order(account.getUsername(), products, account.getAddress(), account.getPhone(), getTotal(cart));
+                this.orderRepository.saveAndFlush(order);
+                cart = new ArrayList<Product>();
+                redirectAttributes.addFlashAttribute("cart", cart);
+            }
         }
         return "redirect:/cart";
     }
@@ -165,6 +170,41 @@ public class Controller {
         return "redirect:/orders";
     }
 
+    @GetMapping("/status")
+    public ModelAndView status(ModelAndView modelAndView, @ModelAttribute("account") Account account){
+        if(account.isAdmin()){
+            List<Product> products = this.productRepository.findAll();
+            modelAndView.setViewName("base-layout");
+            modelAndView.addObject("view", "views/status");
+            modelAndView.addObject("products", products);
+        }
+        return modelAndView;
+    }
+
+    @PostMapping("/disable/{id}")
+    public String disable(@PathVariable(value ="id")Integer id, @ModelAttribute("account") Account account){
+        if(account.isAdmin()){
+            Optional<Product> product = this.productRepository.findById(id);
+            Product obj = product.get();
+            obj.setStatus("disabled");
+            this.productRepository.save(obj);
+        }
+        return "redirect:/status";
+    }
+
+    @PostMapping("/enable/{id}")
+    public String enable(@PathVariable(value ="id")Integer id, @ModelAttribute("account") Account account){
+        if(account.isAdmin()){
+            Optional<Product> product = this.productRepository.findById(id);
+            Product obj = product.get();
+            obj.setStatus("enabled");
+            this.productRepository.save(obj);
+        }
+        return "redirect:/status";
+    }
+
+
+//Utils ================================================================================================================
     private String convertListToString(List<Product> products){
         StringBuilder sb = new StringBuilder();
         for(Product pr: products){

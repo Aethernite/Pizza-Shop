@@ -11,18 +11,20 @@ public class Product {
     private String description;
     private float price;
     private String type;
+    private String status;
 
 
     public Product(){
 
     }
 
-    public Product(String imgurl, String name, String description, float price, String type) {
+    public Product(String imgurl, String name, String description, float price, String type, String status) {
         this.imgurl = imgurl;
         this.name = name;
         this.description = description;
         this.price = price;
         this.type = type;
+        this.status = status;
     }
 
     @Id
@@ -74,5 +76,13 @@ public class Product {
 
     public void setType(String type) {
         this.type = type;
+    }
+    @Column(name ="status", nullable = false)
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

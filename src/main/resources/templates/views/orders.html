@@ -6,6 +6,8 @@
     <div class="sidenav">
         <h4>User:[[${account.username}]]</h4>
         <a href="#" th:href="@{/orders}">Orders</a>
+        <a href="#" th:href="@{/status}">Status</a>
+        <a href="#" th:href="@{/}">Add/Remove</a>
         <a href="#" th:href="@{/}">Logout</a>
 
     </div>
@@ -13,7 +15,7 @@
         <ul class="orders-column">
             <th:block th:each="order : ${orders}">
                 <li>
-                    <td><h3 class="username">Name:[[${order.username}]]</h3></td>
+                    <td><h3 class="username">From:[[${order.username}]]</h3></td>
                     <td><h2 class="order-title">Order</h2></td>
                     <td><p class="order-products">[[${order.products}]]</p></td>
                     <td><p class="address">Address:[[${order.address}]]</p></td>

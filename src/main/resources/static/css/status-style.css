@@ -1,10 +1,56 @@
-
 body{
     background-image: url(https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80);
     background-repeat: no-repeat;
     background-size: cover;
 }
+.products{
+    margin-left: 150px;
+}
+.products li{
+    display: inline-block;
+    padding-right:0;
+    border: 1px dashed #ddd;
+    box-shadow: 0 0 0 3px #fff, 0 0 0 5px #ddd, 0 0 0 10px #ff1, 0 0 2px 10px #ff3;
+    background-color: white;
+    margin: 30px;
+    transition: all .2s ease-in-out;
+    width: 250px;
+    height: 450px;
+    float: left;
+    position: relative;
+}
 
+.products li:hover{
+    transform: scale(1.1);
+}
+
+.products h3{
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    color: black;
+    margin:10px 10px 10px 10px;
+    overflow: auto;
+}
+.products p{
+    font-family: 'Roboto', sans-serif;
+    text-align:center;
+    overflow:auto;
+    margin:0;
+}
+.products button{
+    border: none;
+    outline: 0;
+    padding: 12px;
+    margin-top: 0px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 50%;
+    font-size: 18px;
+    float: left;
+    position: relative;
+}
 .sidenav {
     height: 100%; /* Full-height: remove this if you want "auto" height */
     width: 160px; /* Set the width of the sidebar */
@@ -39,82 +85,17 @@ body{
     padding: 0px 10px;
 }
 
-
+h1 {
+    text-align:center;
+    font-size: 50px;
+    font-family: 'Roboto', sans-serif;
+    transition: all .2s ease-in-out;
+    background: none;
+}
+h1:hover{
+    transform: scale(1.1);
+}
 h4{
     font-family: 'Roboto', sans-serif;
     color: #818181;
-}
-
-.products{
-    background-color: #f2f2f2;
-    padding: 5px 20px 40px 20px;
-    border: 3px solid black;
-    border-radius: 3px;
-}
-.products h1{
-    text-align:center;
-    color: black;
-    font-family: 'Roboto', sans-serif;
-}
-
-.products li{
-    border: 2px solid black;
-    margin: 5px;
-    list-style-type: none;
-}
-
-.products h2{
-    display:inline-block;
-    font-family: 'Roboto', sans-serif;
-}
-
-.products img{
-    vertical-align:middle
-}
-
-.price{
-    float: right;
-    margin-right: 20px;
-}
-
-.product-desc{
-    font-size: 16px;
-    margin-left: 20px;
-}
-.button{
-    background-color: #4CAF50; /* Green */
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 30px;
-    margin-left:1200px;
-    margin-top:40px;
-    transition: 0.25s;
-}
-
-.total{
-    margin-left: 20px;
-}
-
-.button:hover{
-    transform: scale(1.1);
-}
-
-.x-button{
-    float: left;
-    padding: 0;
-    border: none;
-    background: none;
-    font-size: 35px;
-    margin: 15px;
-    margin-top:30px;
-    font-family: 'Roboto', sans-serif;
-    color: black;
-    transition: 0.25s;
-}
-.x-button:hover{
-    transform: scale(1.1);
 }

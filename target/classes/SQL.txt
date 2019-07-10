@@ -1,30 +1,30 @@
-INSERT INTO products (imgurl, NAME, description, TYPE, price)
-VALUES ('/images/margarita.png', 'Margaritta', 'tomato sauce, mozzarella, extra mozzarella','pizza',9.00);
+INSERT INTO products (imgurl, NAME, description, TYPE, price, status)
+VALUES ('/images/margarita.png', 'Margaritta', 'tomato sauce, mozzarella, extra mozzarella','pizza',9.00, 'enabled');
 
-INSERT INTO products (imgurl, NAME, description, TYPE, price)
-VALUES ('/images/peperoni.png', 'Peperoni', 'tomato sauce, mozzarella, peperoni','pizza',12.00);
+INSERT INTO products (imgurl, NAME, description, TYPE, price, status)
+VALUES ('/images/peperoni.png', 'Peperoni', 'tomato sauce, mozzarella, peperoni','pizza',12.00, 'enabled');
 
-INSERT INTO products (imgurl, NAME, description, TYPE, price)
-VALUES ('/images/bbqpile.png', 'Barbeque chicken', 'tomato sauce, mozzarella, bacon, chicken','pizza',12.00);
+INSERT INTO products (imgurl, NAME, description, TYPE, price, status)
+VALUES ('/images/bbqpile.png', 'Barbeque chicken', 'tomato sauce, mozzarella, bacon, chicken','pizza',12.00, 'enabled');
 
-INSERT INTO products (imgurl, NAME, description, TYPE, price)
-VALUES ('/images/italianska.png', 'Italiano', 'tomato sauce, mozzarella, pesto, parmesan, tomatoes, basil','pizza',13.00);
+INSERT INTO products (imgurl, NAME, description, TYPE, price, status)
+VALUES ('/images/italianska.png', 'Italiano', 'tomato sauce, mozzarella, pesto, parmesan, tomatoes, basil','pizza',13.00, 'enabled');
 
 
-INSERT INTO products (imgurl, NAME, description, TYPE, price)
-VALUES ('/images/hawai.png', 'Hawai', 'tomato sauce, mozarella, ham, pineapple','pizza',11.00);
+INSERT INTO products (imgurl, NAME, description, TYPE, price, status)
+VALUES ('/images/hawai.png', 'Hawai', 'tomato sauce, mozarella, ham, pineapple','pizza',11.00, 'enabled');
 
-INSERT INTO products (imgurl, NAME, description, TYPE, price)
-VALUES ('/images/picaton.png', 'Pizza tuna', 'tomato sauce, mozzarella, tuna, onion','pizza',11.00);
+INSERT INTO products (imgurl, NAME, description, TYPE, price, status)
+VALUES ('/images/picaton.png', 'Pizza tuna', 'tomato sauce, mozzarella, tuna, onion','pizza',11.00, 'enabled');
 
-INSERT INTO products (imgurl, NAME, description, TYPE, price)
-VALUES ('/images/bankq.png', 'Mineral water Bankq', 'Water 500ml','drink',1.00);
+INSERT INTO products (imgurl, NAME, description, TYPE, price, status)
+VALUES ('/images/bankq.png', 'Mineral water Bankia', 'Water 500ml','drink',1.00, 'enabled');
 
-INSERT INTO products (imgurl, NAME, description, TYPE, price)
-VALUES ('/images/cocacolacan.png', 'Coca-Cola can', 'Coca-Cola 330ml','drink',1.20);
+INSERT INTO products (imgurl, NAME, description, TYPE, price, status)
+VALUES ('/images/cocacolacan.png', 'Coca-Cola can', 'Coca-Cola 330ml','drink',1.20, 'enabled');
 
-INSERT INTO products (imgurl, NAME, description, TYPE, price)
-VALUES ('/images/fantacan.png', 'Fanta can', 'Fanta 330ml','drink',1.20);
+INSERT INTO products (imgurl, NAME, description, TYPE, price, status)
+VALUES ('/images/fantacan.png', 'Fanta can', 'Fanta 330ml','drink',1.20, 'enabled');
 
-INSERT INTO products (imgurl, NAME, description, TYPE, price)
-VALUES ('/images/heineken.png', 'Beer heineken', 'Beer 500мл','drink',1.00);
+INSERT INTO products (imgurl, NAME, description, TYPE, price, status)
+VALUES ('/images/heineken.png', 'Beer heineken', 'Beer 500мл','drink',1.00, 'enabled');
