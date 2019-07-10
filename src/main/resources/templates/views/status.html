@@ -7,8 +7,9 @@
         <h4>User:[[${account.username}]]</h4>
         <a href="#" th:href="@{/orders}">Orders</a>
         <a href="#" th:href="@{/status}">Status</a>
-        <a href="#" th:href="@{/}">Add/Remove</a>
-        <a href="#" th:href="@{/}">Logout</a>
+        <a href="#" th:href="@{/removeprods}">Remove</a>
+        <a id="logout" href="#" th:href="@{/logout}">Logout</a>
+        <script type="text/javascript" src="/js/logoutAlert.js"></script>
 
     </div>
     <div class="container-products">

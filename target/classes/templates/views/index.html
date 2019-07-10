@@ -5,7 +5,8 @@
 <div id="container" xmlns:th="http://www.w3.org/1999/xhtml">
     <div id="box">
         <h1>Login</h1>
-        <form action="" method="POST">
+        <script type="text/javascript" src="/js/validateLoginForm.js"></script>
+        <form action="" method="POST" onsubmit="return validateForm()" name="Form">
             <div class="field">
                 <input id="username" type="text" name="username" placeholder="Username">
             </div>

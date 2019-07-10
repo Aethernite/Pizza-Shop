@@ -8,6 +8,7 @@ import PizzaShop.Repositories.OrderRepository;
 import PizzaShop.Repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -61,6 +62,11 @@ public class Controller {
             return "redirect:/";
     }
 
+    @GetMapping("/logout")
+        public String logout(SessionStatus sessionStatus){
+        sessionStatus.setComplete();
+         return "redirect:/";
+        }
 
     @GetMapping("/register")
     public ModelAndView register(ModelAndView modelAndView){
@@ -203,6 +209,25 @@ public class Controller {
         return "redirect:/status";
     }
 
+
+    @GetMapping("/removeprods")
+    public ModelAndView removeprods(ModelAndView modelAndView, @ModelAttribute("account") Account account){
+        if(account.isAdmin()){
+            List<Product> products = this.productRepository.findAll();
+            modelAndView.setViewName("base-layout");
+            modelAndView.addObject("view","views/removeprods");
+            modelAndView.addObject("products", products);
+        }
+        return modelAndView;
+    }
+
+    @PostMapping("/removeprods/{id}")
+    public String removeproduct(@PathVariable(value="id") Integer id, @ModelAttribute("account") Account account){
+        if(account.isAdmin()){
+            this.productRepository.deleteById(id);
+        }
+        return "redirect:/removeprods";
+    }
 
 //Utils ================================================================================================================
     private String convertListToString(List<Product> products){

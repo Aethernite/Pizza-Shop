@@ -7,8 +7,9 @@
         <h4>User:[[${account.username}]]</h4>
         <a href="#" th:href="@{/orders}">Orders</a>
         <a href="#" th:href="@{/status}">Status</a>
-        <a href="#" th:href="@{/}">Add/Remove</a>
-        <a href="#" th:href="@{/}">Logout</a>
+        <a href="#" th:href="@{/removeprods}">Remove</a>
+        <a id="logout" href="#" th:href="@{/logout}">Logout</a>
+        <script type="text/javascript" src="/js/logoutAlert.js"></script>
 
     </div>
     <div class="products" xmlns:th="http://www.w3.org/1999/xhtml">
@@ -16,13 +17,15 @@
             <th:block th:each="order : ${orders}">
                 <li>
                     <td><h3 class="username">From:[[${order.username}]]</h3></td>
+                    <td><p class="username">Created:[[${order.dateTime}]]</p></td>
                     <td><h2 class="order-title">Order</h2></td>
                     <td><p class="order-products">[[${order.products}]]</p></td>
                     <td><p class="address">Address:[[${order.address}]]</p></td>
                     <td><p class="phone">Phone:[[${order.phone}]]</p></td>
 
                     <td><h3 class="price">Total price:[[${#numbers.formatDecimal(order.price, 1, 'DEFAULT', 2, 'DEFAULT')}]] BGN</h3></td>
-                    <td><p><form action="" th:action="@{/completeOrder/{id}(id=${order.id})}" method="POST"><button class="button">Complete Order</button></form></p></td>
+                    <td><p><form action="" th:action="@{/completeOrder/{id}(id=${order.id})}" method="POST"><button class="button" id="button-complete">Complete Order</button></form></p></td>
+                    <script type="text/javascript" src="/js/completebutton.js"></script>
                 </li>
 
             </th:block>

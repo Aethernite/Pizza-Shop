@@ -1,6 +1,7 @@
 package PizzaShop.Entities;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -13,6 +14,7 @@ public class Order {
     private String phone;
     private double price;
     private String status;
+    private Date dateTime;
 
 
 
@@ -27,6 +29,7 @@ public class Order {
         this.phone = phone;
         this.price = price;
         this.status = "not completed";
+        this.dateTime = new Date();
     }
     @Column(name = "status",nullable = false)
     public String getStatus() {
@@ -89,5 +92,15 @@ public class Order {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "date_time", nullable = false)
+    public Date getDateTime() {
+        return dateTime;
+    }
+
+    public void setDateTime(Date dateTime) {
+        this.dateTime = dateTime;
     }
 }

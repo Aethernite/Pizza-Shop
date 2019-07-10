@@ -1,3 +1,4 @@
+
 <head th:fragment="head">
     <title th:if="${pageTitle}" th:text="${pageTitle}"></title>
     <link th:href="@{/css/forms-style.css}" rel="stylesheet" type="text/css"/>
@@ -5,7 +6,8 @@
 <div id="container" xmlns:th="http://www.w3.org/1999/xhtml">
     <div id="box">
         <h1>Register FORM</h1>
-        <form action="" th:action="@{/register}" method="POST">
+        <script type="text/javascript" src="/js/validateRegisterForm.js"></script>
+        <form action="" th:action="@{/register}" method="POST" name="Form" onsubmit="return validateForm()">
             <div id="field">
                 <input id="email" type="text" name="email" placeholder="Email" >
             </div>
