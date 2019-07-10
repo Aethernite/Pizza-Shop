@@ -6,6 +6,7 @@ import PizzaShop.Repositories.AccountRepository;
 import PizzaShop.Entities.Product;
 import PizzaShop.Repositories.OrderRepository;
 import PizzaShop.Repositories.ProductRepository;
+import PizzaShop.md5.MD5;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.SessionStatus;
@@ -43,15 +44,12 @@ public class Controller {
     public String login(Account account, RedirectAttributes redirectAttributes){
 
         if (isValid(account)) return "redirect:/";
-        List<Account> accounts = this.accountRepository.findAll();
-        Account acc = accounts.stream()
-                .filter(account1 -> account.getUsername().equals(account1.getUsername()))
-                .findAny()
-                .orElse(null);
+
+        Account acc = this.accountRepository.findByUsername(account.getUsername());
         if(acc == null){
             return "redirect:/";
         }
-        if(acc.getUsername().equals(account.getUsername()) && acc.getPassword().equals(account.getPassword())){
+        if(acc.getPassword().equals(MD5.getMd5(account.getPassword()))){
             redirectAttributes.addFlashAttribute("account", acc);
             redirectAttributes.addFlashAttribute("cart", new ArrayList<Product>());
             if(acc.isAdmin()){
@@ -77,7 +75,8 @@ public class Controller {
 
     @PostMapping("/register")
     public String create(Account account){
-        if (isValid(account)) return "redirect:/register";
+        if (!isValid(account)) return "redirect:/register";
+        account.setPassword(MD5.getMd5(account.getPassword()));
         accountRepository.saveAndFlush(account);
         return "redirect:/";
     }
@@ -249,9 +248,17 @@ public class Controller {
 
     private boolean isValid(Account account) {
         if(account.getUsername() == null || account.getPassword() == null || account.getUsername().trim().isEmpty() || account.getPassword().trim().isEmpty()){
-            return true;
+            return false;
         }
-        return false;
+        Account acc = this.accountRepository.findByUsername(account.getUsername());
+        if(acc!=null){
+            return false;
+        }
+        Account email = this.accountRepository.findByEmail(account.getEmail());
+        if(email!=null){
+            return false;
+        }
+        return true;
     }
 
     private double getTotal(List<Product> productList){

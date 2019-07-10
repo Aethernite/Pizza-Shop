@@ -10,7 +10,6 @@ VALUES ('/images/bbqpile.png', 'Barbeque chicken', 'tomato sauce, mozzarella, ba
 INSERT INTO products (imgurl, NAME, description, TYPE, price, status)
 VALUES ('/images/italianska.png', 'Italiano', 'tomato sauce, mozzarella, pesto, parmesan, tomatoes, basil','pizza',13.00, 'enabled');
 
-
 INSERT INTO products (imgurl, NAME, description, TYPE, price, status)
 VALUES ('/images/hawai.png', 'Hawai', 'tomato sauce, mozarella, ham, pineapple','pizza',11.00, 'enabled');
 
@@ -28,3 +27,4 @@ VALUES ('/images/fantacan.png', 'Fanta can', 'Fanta 330ml','drink',1.20, 'enable
 
 INSERT INTO products (imgurl, NAME, description, TYPE, price, status)
 VALUES ('/images/heineken.png', 'Beer heineken', 'Beer 500мл','drink',1.00, 'enabled');
+

@@ -45,7 +45,7 @@ public class Account {
         this.id = id;
     }
 
-    @Column(name ="email", nullable = false)
+    @Column(name ="email", nullable = false, unique=true)
     public String getEmail() {
         return email;
     }
@@ -54,7 +54,7 @@ public class Account {
         this.email = email;
     }
 
-    @Column(name = "username",nullable = false)
+    @Column(name = "username",nullable = false, unique=true)
     public String getUsername() {
         return username;
     }

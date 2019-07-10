@@ -25,8 +25,8 @@
                         <td><p>[[${product.description}]]</p></td>
                         <td><h3>Price:[[${#numbers.formatDecimal(product.price, 1, 'DEFAULT', 2, 'DEFAULT')}]] BGN</h3></td>
                         <td><h3>Status:[[${product.status}]]</h3></td>
-                        <td><p><form action="" th:action="@{/removeprods/{id}(id=${product.id})}" id="form" method="POST"><button>Remove</button></form></p></td>
                         <script type="text/javascript" src="/js/removeproduct.js"></script>
+                        <td><p><form action="" th:action="@{/removeprods/{id}(id=${product.id})}" id="form" method="POST" onsubmit="return removeProduct()"><button>Remove</button></form></p></td>
                     </li>
                 </th:block>
             </ul>

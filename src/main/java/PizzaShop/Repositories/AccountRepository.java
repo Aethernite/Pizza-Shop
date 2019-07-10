@@ -9,5 +9,7 @@ package PizzaShop.Repositories;
 @Repository
 public interface AccountRepository extends JpaRepository<Account, Integer> {
     List<Account> findAll();
+    Account findByUsername(String username);
+    Account findByEmail(String email);
 
 }
