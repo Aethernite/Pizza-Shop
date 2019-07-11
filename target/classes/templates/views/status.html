@@ -25,7 +25,7 @@
                         <td><p>[[${product.description}]]</p></td>
                         <td><h3>Price:[[${#numbers.formatDecimal(product.price, 1, 'DEFAULT', 2, 'DEFAULT')}]] BGN</h3></td>
                         <td><h3>Status:[[${product.status}]]</h3></td>
-                        <td><p><form action="" th:action="@{/enable/{id}(id=${product.id})}" method="POST"><button>Enable</button></form></p>
+                        <td><p><form action="" th:action="@{/enable/{id}(id=${product.id})}" method="POST"><button>Enable</button></form></p></td>
                         <td><p><form action="" th:action="@{/disable/{id}(id=${product.id})}" method="POST"><button>Disable</button></form></p></td>
                     </li>
                 </th:block>

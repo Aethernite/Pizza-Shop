@@ -24,8 +24,9 @@
                     <td><p class="phone">Phone:[[${order.phone}]]</p></td>
 
                     <td><h3 class="price">Total price:[[${#numbers.formatDecimal(order.price, 1, 'DEFAULT', 2, 'DEFAULT')}]] BGN</h3></td>
-                    <td><p><form action="" th:action="@{/completeOrder/{id}(id=${order.id})}" method="POST"><button class="button" id="button-complete">Complete Order</button></form></p></td>
-                    <script type="text/javascript" src="/js/completebutton.js"></script>
+                    <script type="text/javascript" src="/js/completeOrder.js"></script>
+                    <td><p><form action="" th:action="@{/completeOrder/{id}(id=${order.id})}" method="POST" onsubmit="return completeOrder()"><button class="button" id="button-complete">Complete Order</button></form></p></td>
+
                 </li>
 
             </th:block>
