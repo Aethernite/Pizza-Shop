@@ -1,13 +1,15 @@
 <head th:fragment="head">
     <title th:if="${pageTitle}" th:text="${pageTitle}"></title>
-    <link th:href="@{/css/orders-css.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/css/orders-style.css}" rel="stylesheet" type="text/css"/>
 </head>
 <div class="container" xmlns:th="http://www.w3.org/1999/xhtml">
     <div class="sidenav">
         <h4>User:[[${account.username}]]</h4>
         <a href="#" th:href="@{/orders}">Orders</a>
+        <h4>Product options</h4>
         <a href="#" th:href="@{/status}">Status</a>
         <a href="#" th:href="@{/removeprods}">Remove</a>
+        <a href="#" th:href="@{/addproduct}">Add</a>
         <a id="logout" href="#" th:href="@{/logout}">Logout</a>
         <script type="text/javascript" src="/js/logoutAlert.js"></script>
 

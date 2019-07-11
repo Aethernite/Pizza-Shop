@@ -227,6 +227,22 @@ public class Controller {
         }
         return "redirect:/removeprods";
     }
+    @GetMapping("/addproduct")
+    public ModelAndView addproduct(ModelAndView modelAndView, @ModelAttribute("account") Account account){
+        if(account.isAdmin()){
+            modelAndView.setViewName("base-layout");
+            modelAndView.addObject("view","views/addproduct");
+        }
+        return modelAndView;
+    }
+
+    @PostMapping("/addproduct")
+        public String addproduct(@ModelAttribute Product product,@ModelAttribute("account") Account account){
+        if(account.isAdmin()) {
+            this.productRepository.saveAndFlush(product);
+        }
+            return "redirect:/addproduct";
+        }
 
 //Utils ================================================================================================================
     private String convertListToString(List<Product> products){

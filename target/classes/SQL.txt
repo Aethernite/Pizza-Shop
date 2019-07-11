@@ -39,3 +39,6 @@ VALUES ('/images/newyork.png', 'New York', 'tomato sauce, cheddar, ham, bacon','
 
 INSERT INTO products (imgurl, NAME, description, TYPE, price, status)
 VALUES ('/images/formaggi.png', 'Formaggi', 'tomato sauce, cheddar, mozzarella, blue cheese, gauda','pizza',10, 'enabled');
+
+INSERT INTO products (imgurl, NAME, description, TYPE, price, status)
+VALUES ('/images/orange-fresh.png', 'Orange fresh', 'Orange fresh 500ml','drink',2.20, 'enabled');
