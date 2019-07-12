@@ -43,3 +43,5 @@ VALUES ('/images/formaggi.png', 'Formaggi', 'tomato sauce, cheddar, mozzarella, 
 INSERT INTO products (imgurl, NAME, description, TYPE, price, status)
 VALUES ('/images/orange-fresh.png', 'Orange fresh', 'Orange fresh 500ml','drink',2.20, 'enabled');
 
+INSERT INTO accounts (username, password, email, address, phone, is_admin)
+VALUES ('admin', '21232f297a57a5a743894a0e4a801fc3', 'appar0x@abv.bg', 'Drujba 1', '0883224455', 1);
