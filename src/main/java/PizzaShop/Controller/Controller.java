@@ -43,7 +43,7 @@ public class Controller {
     @PostMapping("/")
     public String login(Account account, RedirectAttributes redirectAttributes){
 
-        if (isValid(account)) return "redirect:/";
+        if (Utils.isValid(account,accountRepository)) return "redirect:/";
 
         Account acc = this.accountRepository.findByUsername(account.getUsername());
         if(acc == null){
@@ -75,7 +75,7 @@ public class Controller {
 
     @PostMapping("/register")
     public String create(Account account){
-        if (!isValid(account)) return "redirect:/register";
+        if (!Utils.isValid(account, accountRepository)) return "redirect:/register";
         account.setPassword(MD5.getMd5(account.getPassword()));
         accountRepository.saveAndFlush(account);
         return "redirect:/";
@@ -108,7 +108,7 @@ public class Controller {
     @GetMapping("/cart")
     public ModelAndView cart(ModelAndView modelAndView,@ModelAttribute("cart") List<Product> cart,@ModelAttribute("account") Account account){
         if(!account.isAdmin()) {
-            double total = getTotal(cart);
+            double total = Utils.getTotal(cart);
             modelAndView.setViewName("base-layout");
             modelAndView.addObject("view", "views/cart");
             modelAndView.addObject("total", total);
@@ -133,7 +133,7 @@ public class Controller {
     @PostMapping("/remove/{id}")
     public String remove( @PathVariable(value="id") Integer id, @ModelAttribute("cart") List<Product> cart, RedirectAttributes redirectAttributes, @ModelAttribute("account") Account account){
         if(!account.isAdmin()) {
-            cart = removeFromCart(cart, id);
+            cart = Utils.removeFromCart(cart, id);
             redirectAttributes.addFlashAttribute("cart", cart);
         }
         return "redirect:/cart";
@@ -143,8 +143,8 @@ public class Controller {
     public String createOrder(@ModelAttribute("account") Account account, @ModelAttribute("cart") List<Product> cart, RedirectAttributes redirectAttributes){
         if(!account.isAdmin()) {
             if(!cart.isEmpty()) {
-                String products = convertListToString(cart);
-                Order order = new Order(account.getUsername(), products, account.getAddress(), account.getPhone(), getTotal(cart));
+                String products = Utils.convertListToString(cart);
+                Order order = new Order(account.getUsername(), products, account.getAddress(), account.getPhone(), Utils.getTotal(cart));
                 this.orderRepository.saveAndFlush(order);
                 cart = new ArrayList<Product>();
                 redirectAttributes.addFlashAttribute("cart", cart);
@@ -241,50 +241,6 @@ public class Controller {
         if(account.isAdmin()) {
             this.productRepository.saveAndFlush(product);
         }
-            return "redirect:/addproduct";
-        }
-
-//Utils ================================================================================================================
-    private String convertListToString(List<Product> products){
-        StringBuilder sb = new StringBuilder();
-        for(Product pr: products){
-           sb.append(pr.getName() + " " + String.format("%.2f",pr.getPrice()) + "\n");
-        }
-        return sb.toString();
-    }
-    private List<Product> removeFromCart(List<Product> cart, Integer id){
-        for(int i=0; i<cart.size(); i++){
-           if(cart.get(i).getId().intValue() == id.intValue()){
-               cart.remove(i);
-               break;
-           }
-        }
-        return cart;
-    }
-
-    private boolean isValid(Account account) {
-        if(account.getUsername() == null || account.getPassword() == null || account.getUsername().trim().isEmpty() || account.getPassword().trim().isEmpty()){
-            return false;
-        }
-        Account acc = this.accountRepository.findByUsername(account.getUsername());
-        if(acc!=null){
-            return false;
-        }
-        Account email = this.accountRepository.findByEmail(account.getEmail());
-        if(email!=null){
-            return false;
-        }
-        return true;
-    }
-
-    private double getTotal(List<Product> productList){
-        double total = 0;
-        if(productList==null){
-            return total;
-        }
-        for(Product pr: productList){
-            total+=pr.getPrice();
-        }
-        return total;
+        return "redirect:/addproduct";
     }
 }
