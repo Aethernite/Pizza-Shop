@@ -9,7 +9,7 @@ public class Product {
     private String imgurl;
     private String name;
     private String description;
-    private float price;
+    private double price;
     private String type;
     private String status;
 
@@ -18,7 +18,7 @@ public class Product {
 
     }
 
-    public Product(String imgurl, String name, String description, float price, String type, String status) {
+    public Product(String imgurl, String name, String description, double price, String type, String status) {
         this.imgurl = imgurl;
         this.name = name;
         this.description = description;
@@ -62,11 +62,11 @@ public class Product {
         this.description = description;
     }
     @Column(name ="price", nullable = false)
-    public float getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(float price) {
+    public void setPrice(double price) {
         this.price = price;
     }
     @Column(name ="type", nullable = false)

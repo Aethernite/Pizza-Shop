@@ -1,0 +1,33 @@
+<head th:fragment="head">
+    <title th:if="${pageTitle}" th:text="${pageTitle}"></title>
+    <link th:href="@{/css/pizzas-style.css}" rel="stylesheet" type="text/css"/>
+</head>
+<div class="container" xmlns:th="http://www.w3.org/1999/xhtml">
+    <div class="sidenav">
+        <h4>User:[[${email}]]</h4>
+        <a href="#" th:href="@{/customer/pizzas}">Pizzas</a>
+        <a href="#" th:href="@{/customer/drinks}">Drinks</a>
+        <a href="#" th:href="@{/customer/cart}">Cart</a>
+        <a id="logout" href="#" th:href="@{/logout}">Logout</a>
+        <script type="text/javascript" src="/js/logoutAlert.js"></script>
+
+    </div>
+    <div class="container-products">
+        <div class="header">
+            <h1>Tasty Pizza</h1>
+        </div>
+        <div class="products" xmlns:th="http://www.w3.org/1999/xhtml">
+            <ul class="products-column">
+                <th:block th:each="product : ${products}">
+                    <li>
+                        <td> <img th:src="@{${product.imgurl}}" height="250" width="250"/></td>
+                        <td><h3>[[${product.name}]]</h3></td>
+                        <td><p>[[${product.description}]]</p></td>
+                        <td><h3>Price:[[${#numbers.formatDecimal(product.price, 1, 'DEFAULT', 2, 'DEFAULT')}]] BGN</h3></td>
+                        <td><p><form action="" th:action="@{/customer/cart/add/{id}(id=${product.id})}" method="POST"><button>Add to cart</button></form></p></td>
+                    </li>
+                </th:block>
+            </ul>
+        </div>
+    </div>
+</div>

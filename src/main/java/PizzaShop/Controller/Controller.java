@@ -1,4 +1,4 @@
-package PizzaShop.Controller;
+/*package PizzaShop.Controller;
 
 import PizzaShop.Entities.Account;
 import PizzaShop.Entities.Order;
@@ -244,3 +244,4 @@ public class Controller {
         return "redirect:/addproduct";
     }
 }
+*/

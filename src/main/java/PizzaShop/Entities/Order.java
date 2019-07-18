@@ -1,37 +1,57 @@
 package PizzaShop.Entities;
 
+import PizzaShop.Models.User;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "orders")
 public class Order {
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer id;
-    private String username;
-    private String products;
-    private String address;
-    private String phone;
-    private double price;
+    @ManyToOne
+    @JoinColumn(name="user_id", nullable=false)
+    private User user_id;
+    @Column(name = "status",nullable = false)
     private String status;
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "date_time", nullable = false)
     private Date dateTime;
 
+    @OneToMany(cascade=CascadeType.ALL)
+    @JoinColumn(name="order_id")
+    private Set<Item> items;
 
+    public User getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(User user_id) {
+        this.user_id = user_id;
+    }
 
     public Order(){
 
     }
 
-    public Order(String username, String products, String address, String phone, Double price) {
-        this.username = username;
-        this.products = products;
-        this.address = address;
-        this.phone = phone;
-        this.price = price;
+    public Order(User user_id) {
+        this.user_id = user_id;
         this.status = "not completed";
         this.dateTime = new Date();
     }
-    @Column(name = "status",nullable = false)
+
+    public Set<Item> getItems() {
+        return items;
+    }
+
+    public void setItems(Set<Item> items) {
+        this.items = items;
+    }
+
     public String getStatus() {
         return status;
     }
@@ -40,8 +60,6 @@ public class Order {
         this.status = status;
     }
 
-    @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
     public Integer getId() {
         return id;
     }
@@ -50,52 +68,6 @@ public class Order {
         this.id = id;
     }
 
-
-    @Column(name = "username", nullable = false)
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    @Column(name ="products", nullable = false)
-    public String getProducts() {
-        return products;
-    }
-
-    public void setProducts(String products) {
-        this.products = products;
-    }
-
-    @Column(name ="address", nullable = false)
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-    @Column(name ="phone", nullable = false)
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-    @Column(name = "price", nullable = false)
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "date_time", nullable = false)
     public Date getDateTime() {
         return dateTime;
     }
